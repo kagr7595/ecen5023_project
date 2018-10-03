@@ -77,6 +77,7 @@ uint8_t boot_to_dfu = 0;
 /**
  * @brief  Main function
  */
+//KAtHY IS HeRE
 void main(void)
 {
   // Initialize device
