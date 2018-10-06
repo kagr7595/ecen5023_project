@@ -80,14 +80,14 @@ Checksum (CS) field is transmitted in all messages. The checksum field is the la
             #define SKYTRAQ_MSG_TYPE_NONE   0x0
             #define SKYTRAQ_MSG_TYPE_NMEA   0x1
             #define SKYTRAQ_MSG_TYPE_BINARY 0x2
-    } skytraq_config_msg_format_t __attribute__((__packed__,gcc_struct));
+    } skytraq__msg_output_format_t __attribute__((__packed__,gcc_struct));
 
-#define SKYTRAQ_MSG_IN_POS_UPDATE_RATE   0xe
+#define SKYTRAQ_MSG_IN_POS_CONFIG_UPDATE_RATE   0xe
     typedef struct {
         uint8_t message_id;
         uint8_t rate; /* in Hz 1,2,4,5,8,10,20 - 4-10 for > 38400 baud, 20 for 115200 baud */
         uint8_t attributes;
-    } skytraq_config_msg_format_t __attribute__((__packed__,gcc_struct));
+    } skytraq_config_update_rate_msg_t __attribute__((__packed__,gcc_struct));
 
 #define SKYTRAQ_MSG_IN_CONFIG_DATUM      0x29
     typedef struct {
@@ -100,7 +100,7 @@ Checksum (CS) field is transmitted in all messages. The checksum field is the la
         uint32_t semi_major_axis;
         uint32_t inversed_flattening;
         uint8_t attributes;
-    } skytraq_config_msg_config_datum_t __attribute__((__packed__,gcc_struct));
+    } skytraq_config_datum_msg_t __attribute__((__packed__,gcc_struct));
 
 
 //Output message IDs
@@ -108,19 +108,19 @@ Checksum (CS) field is transmitted in all messages. The checksum field is the la
     typedef struct {
         uint8_t message_id;
         uint8_t ack_id;
-    } skytraq_config_msg_out_ack_t __attribute__((__packed__,gcc_struct));
+    } skytraq_out_ack_msg_t __attribute__((__packed__,gcc_struct));
 
 #define SKYTRAQ_MSG_OUT_NACK             0x84
     typedef struct {
         uint8_t message_id;
         uint8_t ack_id;
-    } skytraq_config_msg_out_nack_t __attribute__((__packed__,gcc_struct));
+    } skytraq_out_nack_msg_t __attribute__((__packed__,gcc_struct));
 
 #define SKYTRAQ_MSG_OUT_DATUM            0xae
     typedef struct {
         uint8_t message_id;
         uint16_t datum_index;
-    } skytraq_config_msg_out_nack_t __attribute__((__packed__,gcc_struct));
+    } skytraq_data_msg_t __attribute__((__packed__,gcc_struct));
 
 
 void open();
