@@ -28,6 +28,7 @@
 /* Libraries containing default Gecko configuration values */
 #include "em_emu.h"
 #include "em_cmu.h"
+#include "em_usart.h"
 
 /* Device initialization header */
 #include "hal-config.h"
@@ -89,6 +90,21 @@ void main(void)
 
   // Initialize stack
   gecko_init(&config);
+
+UART1_init();
+//USART_Enable(USART1,usartEnable);
+
+//Loopback GPS Rx to Tx for testing
+while(1) {
+/*
+    char hello_world[] = "Hello world.";
+    for (int i=0; i< strlen(hello_world); i++) {
+        USART_Tx(USART1,hello_world[i]);
+    }
+*/
+   USART_Tx(USART1,USART_Rx(USART1));
+}
+
 
   while (1) {
     /* Event pointer for handling events */

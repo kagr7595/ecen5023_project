@@ -5,6 +5,8 @@ Driver for Venus638FLPx GPS Receiver
     burin, 2018/9/26
 */
 
+#include <stdint.h>
+
 /* Skytraq binary message protocol
 
 start(2)    length(2) id(1)        (1-65535)      checksum(1) end(2)
