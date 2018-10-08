@@ -91,8 +91,8 @@ void main(void)
   // Initialize stack
   gecko_init(&config);
 
-UART1_init();
-//USART_Enable(USART1,usartEnable);
+UART0_init();
+//USART_Enable(USART0,usartEnable);
 
 //Loopback GPS Rx to Tx for testing
 while(1) {
@@ -102,7 +102,7 @@ while(1) {
         USART_Tx(USART1,hello_world[i]);
     }
 */
-   USART_Tx(USART1,USART_Rx(USART1));
+   USART_Tx(USART0,USART_Rx(USART0));
 }
 
 
