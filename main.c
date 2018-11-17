@@ -29,6 +29,8 @@
 #include "em_emu.h"
 #include "em_cmu.h"
 #include "em_usart.h"
+#include "em_dbg.h"
+
 
 /* Device initialization header */
 #include "hal-config.h"
@@ -91,6 +93,19 @@ void main(void)
   // Initialize stack
   gecko_init(&config);
 
+
+//setupSWOForPrint(void);
+
+
+if (DBG_Connected())
+{
+    DBG_SWOEnable(1);
+}
+
+
+
+
+
 UART0_init();
 //USART_Enable(USART0,usartEnable);
 
@@ -103,6 +118,8 @@ while(1) {
     }
 */
    USART_Tx(USART0,USART_Rx(USART0));
+
+    ITM_SendChar('a');
 }
 
 
