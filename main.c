@@ -94,32 +94,41 @@ void main(void)
   gecko_init(&config);
 
 
+
 //setupSWOForPrint(void);
-
-
+  //RETARGET_SwoInit();
+#if 0
 if (DBG_Connected())
 {
     DBG_SWOEnable(1);
 }
+#endif
+
+
+
+
+
 
 
 
 
 
 UART0_init();
-//USART_Enable(USART0,usartEnable);
+//UART1_init();
+USART_Enable(USART0,usartEnable);
 
 //Loopback GPS Rx to Tx for testing
 while(1) {
-/*
+
     char hello_world[] = "Hello world.";
     for (int i=0; i< strlen(hello_world); i++) {
-        USART_Tx(USART1,hello_world[i]);
+        USART_Tx(USART0,hello_world[i]);
     }
-*/
-   USART_Tx(USART0,USART_Rx(USART0));
 
-    ITM_SendChar('a');
+   //USART_Tx(USART0,USART_Rx(USART0));
+
+    //ITM_SendChar('a');
+
 }
 
 

@@ -233,7 +233,7 @@ __STATIC_INLINE void CHIP_Init(void)
 
   if (chipRev.major == 0x01) {
     /* Fix for errata EMU_E210 - Potential Power-Down When Entering EM2 */
-    *(volatile uint32_t *)(EMU_BASE + 0x164) |= 0x4;
+   //burin - bug?? *(volatile uint32_t *)(EMU_BASE + 0x164) |= 0x4;
   }
 
 #if defined(_EFR_DEVICE)

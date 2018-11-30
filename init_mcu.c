@@ -87,13 +87,13 @@ static void initMcu_clocks(void)
   SystemHFXOClockSet(BSP_CLK_HFXO_FREQ);
 
   // Enable HFXO oscillator, and wait for it to be stable
-  CMU_OscillatorEnable(cmuOsc_HFXO, true, true);
-
+  // burin - CMU_OscillatorEnable(cmuOsc_HFXO, true, true);
+  CMU_OscillatorEnable(cmuOsc_HFRCO, true, true);
   // Automatically start and select HFXO
   CMU_HFXOAutostartEnable(0, true, true);
 
   // HFRCO not needed when using HFXO
-  CMU_OscillatorEnable(cmuOsc_HFRCO, false, false);
+  //CMU_OscillatorEnable(cmuOsc_HFRCO, false, false);
 
   // Initialize LFXO
   CMU_LFXOInit_TypeDef lfxoInit = BSP_CLK_LFXO_INIT;
@@ -104,7 +104,7 @@ static void initMcu_clocks(void)
   SystemLFXOClockSet(BSP_CLK_LFXO_FREQ);
 
   // Set LFXO if selected as LFCLK
-  CMU_ClockSelectSet(cmuClock_LFA, cmuSelect_LFXO);
-  CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_LFXO);
-  CMU_ClockSelectSet(cmuClock_LFE, cmuSelect_LFXO);
+  // burin - CMU_ClockSelectSet(cmuClock_LFA, cmuSelect_LFXO);
+  //CMU_ClockSelectSet(cmuClock_LFB, cmuSelect_LFXO);
+  //CMU_ClockSelectSet(cmuClock_LFE, cmuSelect_LFXO);
 }
