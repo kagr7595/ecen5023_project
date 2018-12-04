@@ -1,6 +1,9 @@
 #ifndef __ACCELEROMETER_H__
 #define __ACCELEROMETER_H__
 
+#define ADXL345_I2C_ADDR            0x1D // SDO/ALT ADDRESS pin high
+#define ADXL345_I2C_ADDR_ALT        0x53 //   "                 low 
+
 #define ADXL345_REG_DEVID           0x0
     #define ADXL345_REG_DEVID_ID        0xE5
                                   //0x1 - 0x1C reserved
